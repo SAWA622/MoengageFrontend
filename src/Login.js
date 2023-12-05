@@ -1,34 +1,22 @@
 //Login.js
-// Import dependencies
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
-// Import the useNavigate hook from react-router-dom
 import { useNavigate } from "react-router-dom";
 
-// Define Login component
 function Login({ handleLogin }) {
-  // Define state variables
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  // Call the useNavigate hook and assign it to a variable
   const navigate = useNavigate();
 
-  // Define a function to handle form submission
   const handleSubmit = (e) => {
-    // Prevent the default behavior
     e.preventDefault();
-    // Call the handleLogin function with the input values
     handleLogin(username, password);
-    // Redirect to the home page using the navigate function
     navigate("/");
   };
 
-  // Define a function to handle input change
   const handleChange = (e) => {
-    // Get the name and value of the input
     const { name, value } = e.target;
-    // Set the state according to the name
     switch (name) {
       case "username":
         setUsername(value);
