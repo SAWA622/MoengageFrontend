@@ -1,12 +1,9 @@
 // Brewery.js
-// Import dependencies
 import React from "react";
 import { Card, ListGroup, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-// Define Brewery component
 function Brewery({ brewery, reviews }) {
-  // Return the JSX elements
   return (
     <div className="container mt-4">
       <h1 className="text-center">{brewery.name}</h1>
