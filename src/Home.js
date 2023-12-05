@@ -1,29 +1,21 @@
 // Home.js
-// Import dependencies
 import React, { useState } from "react";
 import { Card, ListGroup, Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-// Define Home component
 function Home({ breweries, handleSearch, handleSelect }) {
-  // Define state variables
   const [by_city, setByCity] = useState("");
   const [by_name, setByName] = useState("");
   const [by_type, setByType] = useState("");
-
-  // Define a function to handle form submission
+  
   const handleSubmit = (e) => {
-    // Prevent the default behavior
     e.preventDefault();
-    // Call the handleSearch function with the input values
     handleSearch(by_city, by_name, by_type);
   };
 
-  // Define a function to handle input change
+  
   const handleChange = (e) => {
-    // Get the name and value of the input
     const { name, value } = e.target;
-    // Set the state according to the name
     switch (name) {
       case "by_city":
         setByCity(value);
