@@ -1,15 +1,10 @@
 // Navbar.js
-// Import dependencies
 import React from "react";
 import { Link } from "react-router-dom";
-// Use a different name for the imported Navbar component
 import { Navbar as BootstrapNavbar, Nav, Button } from "react-bootstrap";
 
-// Define Navbar component
 function Navbar({ user, handleLogout }) {
-  // Return the JSX elements
   return (
-    // Use the imported Navbar component with the different name
     <BootstrapNavbar bg="dark" variant="dark" expand="lg">
       <BootstrapNavbar.Brand as={Link} to="/">
         Brewery Review
