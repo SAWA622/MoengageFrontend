@@ -1,10 +1,8 @@
 // App.js
-// Import dependencies
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import axios from "axios";
 
-// Import components and pages
 import Navbar from "./Navbar";
 import Home from "./Home";
 import Login from "./Login";
