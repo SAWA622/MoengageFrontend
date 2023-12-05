@@ -11,9 +11,9 @@ import Login from "./Login";
 import Register from "./Register";
 import Brewery from "./Brewery";
 import Review from "./Review";
-// Import the style.css file
+
 import "./style.css";
-// Define App component
+
 function App() {
   // Define state variables
   const [user, setUser] = useState(null);
@@ -22,10 +22,8 @@ function App() {
   const [brewery, setBrewery] = useState(null);
   const [reviews, setReviews] = useState([]);
 
-  // Define API url
   const API_URL = "http://localhost:5000/api";
 
-  // Define useEffect hook to load the token from the local storage
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
     if (storedToken) {
@@ -33,7 +31,6 @@ function App() {
     }
   }, []);
 
-  // Define useEffect hook to load the user data from the token
   useEffect(() => {
     if (token) {
       // Decode the token
@@ -46,7 +43,6 @@ function App() {
     }
   }, [token]);
 
-  // Define a function to handle user registration
   const handleRegister = async (username, password) => {
     try {
       // Make a POST request to the register endpoint
@@ -54,20 +50,16 @@ function App() {
         username,
         password,
       });
-      // Get the token from the response
       const newToken = response.data.token;
       // Set the token in the state
       setToken(newToken);
-      // Save the token in the local storage
       localStorage.setItem("token", newToken);
     } catch (err) {
-      // Handle errors
       console.error(err);
       alert(err.response.data.message);
     }
   };
 
-  // Define a function to handle user login
   const handleLogin = async (username, password) => {
     try {
       // Make a POST request to the login endpoint
@@ -77,29 +69,22 @@ function App() {
       });
       // Get the token from the response
       const newToken = response.data.token;
-      // Set the token in the state
       setToken(newToken);
-      // Save the token in the local storage
       localStorage.setItem("token", newToken);
     } catch (err) {
-      // Handle errors
       console.error(err);
       alert(err.response.data.message);
     }
   };
 
-  // Define a function to handle user logout
   const handleLogout = () => {
-    // Clear the token from the state
     setToken(null);
-    // Clear the token from the local storage
     localStorage.removeItem("token");
   };
 
   // Define a function to handle brewery search
   const handleSearch = async (by_city, by_name, by_type) => {
     try {
-      // Construct the query string
       let query = "";
       if (by_city) {
         query += `by_city=${by_city}&`;
@@ -111,13 +96,9 @@ function App() {
         query += `by_type=${by_type}&`;
       }
 
-      // Make a GET request to the search endpoint
       const response = await axios.get(`${API_URL}/brewery/search?${query}`);
 
-      // Get the data from the response
       const data = response.data;
-
-      // Set the breweries in the state
       setBreweries(data);
 
     } catch (err) {
@@ -127,16 +108,11 @@ function App() {
     }
   };
 
-  // Define a function to handle brewery selection
   const handleSelect = async (id) => {
     try {
-      // Make a GET request to the brewery endpoint
       const response = await axios.get(`${API_URL}/brewery/${id}`);
 
-      // Get the data from the response
       const data = response.data;
-
-      // Set the brewery in the state
       setBrewery(data);
     } catch (err) {
       // Handle errors
@@ -145,7 +121,6 @@ function App() {
     }
   };
 
-  // Define a function to handle review submission
   const handleSubmit = async (rating, description) => {
     try {
       // Validate the input
@@ -167,22 +142,18 @@ function App() {
         }
       );
 
-      // Get the message from the response
+  
       const message = response.data.message;
 
-      // Alert the message
       alert(message);
 
-      // Reload the reviews
       handleLoad(brewery.id);
     } catch (err) {
-      // Handle errors
       console.error(err);
       alert(err.response.data.message);
     }
   };
 
-  // Define a function to handle review loading
   const handleLoad = async (id) => {
     try {
       // Make a GET request to the reviews endpoint
@@ -191,16 +162,13 @@ function App() {
       // Get the data from the response
       const data = response.data;
 
-      // Set the reviews in the state
       setReviews(data);
     } catch (err) {
-      // Handle errors
       console.error(err);
       alert(err.response.data.message);
     }
   };
 
-  // Return the JSX elements
   return (
     <BrowserRouter>
       <Navbar user={user} handleLogout={handleLogout} />
@@ -216,6 +184,4 @@ function App() {
     </BrowserRouter>
   );
 }
-
-// Export App component
 export default App;
