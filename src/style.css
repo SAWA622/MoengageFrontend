@@ -1,0 +1,104 @@
+/* Style the body element */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Style the navbar element */
+  .navbar {
+    background-color: #333;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+  }
+  
+  /* Style the navbar links */
+  .navbar a {
+    color: white;
+    text-decoration: none;
+    margin: 10px;
+  }
+  
+  /* Style the navbar button */
+  .navbar button {
+    border: none;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+  }
+  
+  /* Style the container element */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Style the form element */
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Style the form group element */
+  .form-group {
+    margin: 10px;
+    width: 80%;
+  }
+  
+  /* Style the form label element */
+  .form-label {
+    font-weight: bold;
+  }
+  
+  /* Style the form control element */
+  .form-control {
+    width: 100%;
+  }
+  
+  /* Style the form button element */
+  .form-button {
+    width: 20%;
+  }
+  
+  /* Style the card element */
+  .card {
+    margin: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Style the card body element */
+  .card-body {
+    padding: 10px;
+  }
+  
+  /* Style the card title element */
+  .card-title {
+    font-weight: bold;
+  }
+  
+  /* Style the card subtitle element */
+  .card-subtitle {
+    font-style: italic;
+    color: #666;
+  }
+  
+  /* Style the card text element */
+  .card-text {
+    color: #333;
+  }
+  
+  /* Style the card button element */
+  .card-button {
+    border: none;
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+  }
+  
